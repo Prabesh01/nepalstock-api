@@ -210,8 +210,8 @@ class S(BaseHTTPRequestHandler):
         self.rfile.close()
              
 
-
-def run(server_class=HTTPServer, handler_class=S, addr="0.0.0.0", port=1204):
+port = int(os.environ.get("PORT", 5000))
+def run(server_class=HTTPServer, handler_class=S, addr="0.0.0.0", port=port):
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
     print(f"Starting httpd server on {addr}:{port}")
