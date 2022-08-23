@@ -79,7 +79,15 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 ">/sectorwise?businessDate=2022-08-08
 </a></li><li>Market History -> <a target="blank" href="/market-summary-history
 ">/market-summary-history
-</a></li><li>Listed Securities -> <a target="blank" href="/company/list
+</a></li>
+
+<li>Broker List -> <a onclick="newo('20')" href="javascript:void(0);">/member?&size=500</a>, POST Data Required: <code>{"memberName":"","contactPerson":"","contactNumber":"","memberCode":"","provinceId":0,"districtId":0,"municipalityId":0}</code>
+</li><form id= "20" action="/member?&size=500" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJtZW1iZXJOYW1lIjoiIiwiY29udGFjdFBlcnNvbiI6IiIsImNvbnRhY3ROdW1iZXIiOiIiLCJtZW1iZXJDb2RlIjoiIiwicHJvdmluY2VJZCI6MCwiZGlzdHJpY3RJZCI6MCwibXVuaWNpcGFsaXR5SWQiOjB9"></form>
+
+<li>Stock Dealers -> <a onclick="newo('21')" href="javascript:void(0);">/member/dealer?&size=500</a>, POST Data Required: <code>{"memberName":"","contactPerson":"","contactNumber":"","memberCode":"","provinceId":0,"districtId":0,"municipalityId":0}</code>
+</li><form id= "21" action="/member/dealer?&size=500" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJtZW1iZXJOYW1lIjoiIiwiY29udGFjdFBlcnNvbiI6IiIsImNvbnRhY3ROdW1iZXIiOiIiLCJtZW1iZXJDb2RlIjoiIiwicHJvdmluY2VJZCI6MCwiZGlzdHJpY3RJZCI6MCwibXVuaWNpcGFsaXR5SWQiOjB9"></form>
+
+<li>Listed Securities -> <a target="blank" href="/company/list
 ">/company/list
 </a></li><li>Promoter Share -> <a target="blank" href="/security/promoters
 ">/security/promoters
