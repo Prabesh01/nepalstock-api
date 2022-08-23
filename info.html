@@ -2,6 +2,9 @@
 <style>
 a{text-decoration: none;}
 a:visited{text-decoration: none;}
+form{
+display:none;
+}	
 </style>
 <script>
 
@@ -30,8 +33,12 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 ">/securityDailyTradeStat/58
 </a></li><li>Corporate Diclosures -> <a target="blank" href="/news/companies/disclosure
 ">/news/companies/disclosure
-</a></li><li>Graph Data -> <a onclick="newo('4')" href="javascript:void(0);">/graph/index/58</a>, POST Data Required: {"id":283}
-</li><form id= "4" action="/graph/index/58" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjgzfQ=="></form><li>Market Summary -> <a target="blank" href="/market-summary
+</a></li><li>NEPSE Graph Data -> <a onclick="newo('4')" href="javascript:void(0);">/graph/index/58</a>, POST Data Required: {"id":283}
+</li><form id= "4" action="/graph/index/58" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjgzfQ=="></form>
+</a></li><li>Company Graph Data -> <a onclick="newo('5')" href="javascript:void(0);">/market/graphdata/131</a>, POST Data Required: {"id":283}
+</li><form id= "5" action="/market/graphdata/131" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjgzfQ=="></form>
+
+<li>Market Summary -> <a target="blank" href="/market-summary
 ">/market-summary
 </a></li><li>Top Gainers -> <a target="blank" href="/top-ten/top-gainer?all=true
 ">/top-ten/top-gainer?all=true
