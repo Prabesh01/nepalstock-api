@@ -39,13 +39,14 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 <li>Top Losers -> <a target="blank" href="/top-ten/top-loser?all=true
 ">/top-ten/top-loser?all=true
 </a></li>
-<li>Top Loosers -> <a target="blank" href="/top-ten/turnover?all=true
+<li>Top Turnover -> <a target="blank" href="/top-ten/turnover?all=true
 ">/top-ten/turnover?all=true
 </a></li><li>Nepse Index -> <a target="blank" href="/nepse-index
 ">/nepse-index
-</a></li><li>FloorSheet -> <a target="blank" href="/nepse-data/floorsheet?&sort=contractId,desc
-">/nepse-data/floorsheet?&sort=contractId,desc
-</a></li><li>Indexes -> <a target="blank" href="/index
+</a></li>
+<li>FloorSheet -> <a onclick="newo('8')" href="javascript:void(0);">/nepse-data/floorsheet?&sort=contractId,desc, POST Data Required: {"id":283}
+</a></li><form id= "8" action="/nepse-data/floorsheet?&sort=contractId,desc" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjgzfQ=="></form>
+<li>Indexes -> <a target="blank" href="/index
 ">/index
 </a></li><li>Indices -> <a target="blank" href="/index/history/58?
 ">/index/history/58?
