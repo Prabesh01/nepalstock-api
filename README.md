@@ -4,7 +4,7 @@ Public version of [nepalstock-api](https://nepalstock-api.herokuapp.com/info).
 
 ## How does this work?
 - You visit nepalstock-api.herokuapp.com/something/somehting/
-- The Server sends request to newweb.nepalstock.com/api/something/somehting/
+- The Server sends request to newweb.nepalstock.com/api/nots/something/somehting/
 - It bypasses the UNAUTHORIZED ACCESS you would get when directly visiting the API.
 - It reads the response and sends the exact response back to you.
 
