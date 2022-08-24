@@ -14,7 +14,6 @@ Public version of [nepalstock-api](https://nepalstock-api.herokuapp.com/info).
 - Visit 127.0.0.1:5000/info
 
 ## Deploy
-Instead of using nepalstock-api.herokuapp.com, you can deploy it yourself on vercel or heroku:
+Instead of using nepalstock-api.herokuapp.com, you can deploy it yourself on heroku:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/Prabesh01/nepalstock-api&project-name=nepalstock-api-selfhosted&repository-name=nepalstock-api)
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/Prabesh01/nepalstock-api)
