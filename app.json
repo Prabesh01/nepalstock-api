@@ -1,0 +1,7 @@
+{
+  "name": "nepalstock-api-selfhosted",
+  "description": "A proxy to newweb.nepalstock.com/api with authentication mechanism bypass",
+  "repository": "https://github.com/Prabesh01/nepalstock-api",
+  "logo": "https://newweb.nepalstock.com/favicon.ico",
+  "keywords": ["python", "nepse", "api"]
+}
