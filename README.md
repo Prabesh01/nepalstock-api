@@ -14,6 +14,11 @@ Public version of [nepalstock-api](https://nepalstock-api.herokuapp.com/info).
 - Visit 127.0.0.1:5000/info
 
 ## Deploy
-Instead of using nepalstock-api.herokuapp.com, you can deploy it yourself on heroku:
+Instead of using nepalstock-api.herokuapp.com, you can deploy it yourself on ~~heroku~~ onrender:
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/Prabesh01/nepalstock-api)
+~~[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/Prabesh01/nepalstock-api)~~
+
+<a href="https://render.com/deploy?repo=https://github.com/Prabesh01/nepalstock-api">
+  <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render">
+</a>
+
