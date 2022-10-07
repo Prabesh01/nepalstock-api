@@ -1,0 +1,9 @@
+services:
+- type: web
+  repo: https://github.com/Prabesh01/nepalstock-api
+  name: nepalstock-api
+  plan: Starter
+  region: singapore
+  env: python
+  buildCommand: pip install requirements.txt
+  startCommand: python main.py
