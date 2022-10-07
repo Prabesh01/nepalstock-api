@@ -7,4 +7,5 @@ services:
   rootDir: .
   region: singapore
   env: python
+  buildCommand: pip install requirements.txt
   startCommand: python main.py
