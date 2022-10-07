@@ -4,7 +4,7 @@ services:
   name: nepalstock-api
   plan: free
   branch: main
-  rootDir: app
+  rootDir: .
   region: singapore
   env: python
   startCommand: python main.py
