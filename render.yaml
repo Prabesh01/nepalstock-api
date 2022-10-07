@@ -2,8 +2,9 @@ services:
 - type: web
   repo: https://github.com/Prabesh01/nepalstock-api
   name: nepalstock-api
-  plan: Starter
+  plan: free
+  branch: main
+  rootDir: app
   region: singapore
   env: python
-  buildCommand: pip install requirements.txt
   startCommand: python main.py
