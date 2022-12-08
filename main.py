@@ -110,17 +110,17 @@ class Nepse:
     def __init__(self):
         self.token_parser     = TokenParser()
         
-        self.token_url            = "https://newweb.nepalstock.com/api/authenticate/prove"
+        self.token_url            = "https://nepalstock.com/api/authenticate/prove"
                 
         self.headers= {
-                            'Host': 'newweb.nepalstock.com',
+                            'Host': 'nepalstock.com',
                             'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:89.0) Gecko/20100101 Firefox/89.0',
                             'Accept': 'application/json, text/plain, */*',
                             'Accept-Language': 'en-US,en;q=0.5',
                             'Accept-Encoding': 'gzip, deflate, br',
                             'Connection': 'keep-alive',
                             'Content-Type': 'application/json',
-                            'Referer': 'https://newweb.nepalstock.com/',
+                            'Referer': 'https://nepalstock.com/',
                             'Pragma': 'no-cache',
                             'Cache-Control': 'no-cache',
                             'TE': 'Trailers',
@@ -140,7 +140,10 @@ class Nepse:
             try:
                 return (r.json(),r.status_code)
             except:
-                return({"error": "invalid"}, 403)
+                try:
+                    return (r.text,r.status_code)
+                except:
+                    return({"error": "invalid"}, 403)
         
     def getValidToken(self):
         token_response = self.requestAPI(url=self.token_url)[0]
@@ -172,7 +175,7 @@ class S(BaseHTTPRequestHandler):
                 self.wfile.write(file.read())            
             return
         nepse = Nepse()    
-        url='https://newweb.nepalstock.com/api/nots'+str(self.path)
+        url='https://nepalstock.com/api/nots'+str(self.path)
         res=nepse.get(url)
         self.write_response(res)
         
@@ -180,7 +183,7 @@ class S(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             nepse = Nepse()
-            url='https://newweb.nepalstock.com/api/nots'+str(self.path)
+            url='https://nepalstock.com/api/nots'+str(self.path)
             content_len = int(self.headers.get('Content-Length'))
             post_body = self.rfile.read(content_len).decode("utf-8")
             if(post_body.strip()==''):
