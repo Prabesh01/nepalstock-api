@@ -1,4 +1,4 @@
-<title>Welcome to NEPSE Website API !!!</title><h2>Welcome to <a href="https://newweb.nepalstock.com/api/">NEPSE Website API</a> !!!</h2>
+<title>Welcome to NEPSE Website API !!!</title><h2>Welcome to <a href="https://nepalstock.com/api/">NEPSE Website API</a> !!!</h2>
 <style>
 a{text-decoration: none;}
 a:visited{text-decoration: none;}
@@ -20,8 +20,12 @@ xhr.onreadystatechange = function() {
         win.document.body.innerHTML = xhr.responseText;
     }
 }
-
-xhr.send(atob(ins.getElementsByTagName("input")[0].value));
+var pdata=ins.getElementsByTagName("input")[0].value;
+if(pdata!='=='){
+xhr.send(atob(pdata));
+}else{
+xhr.send(`{"id":${diff}}`);
+}
 
 }
 </script>
@@ -33,10 +37,10 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 ">/securityDailyTradeStat/58
 </a></li><li>Corporate Diclosures -> <a target="blank" href="/news/companies/disclosure
 ">/news/companies/disclosure
-</a></li><li>NEPSE Graph Data -> <a onclick="newo('4')" href="javascript:void(0);">/graph/index/58</a>, POST Data Required: {"id":241}
-</li><form id= "4" action="/graph/index/58" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjQxfQ=="></form>
-</a></li><li>Company Graph Data -> <a onclick="newo('5')" href="javascript:void(0);">/market/graphdata/131</a>, POST Data Required: {"id":241}
-</li><form id= "5" action="/market/graphdata/131" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjQxfQ=="></form>
+</a></li><li>NEPSE Graph Data -> <a onclick="newo('4')" href="javascript:void(0);">/graph/index/58</a>, POST Data Required: <small class="smali">{"id":241}</small>
+</li><form id= "4" action="/graph/index/58" method="POST" target="_blank"><input type="hidden" name="whatever" value="=="></form>
+</a></li><li>Company Graph Data -> <a onclick="newo('5')" href="javascript:void(0);">/market/graphdata/131</a>, POST Data Required: <small class="smali">{"id":241}</small>
+</li><form id= "5" action="/market/graphdata/131" method="POST" target="_blank"><input type="hidden" name="whatever" value="=="></form>
 
 <li>Market Summary -> <a target="blank" href="/market-summary
 ">/market-summary
@@ -58,8 +62,8 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 <li>Nepse Index -> <a target="blank" href="/nepse-index
 ">/nepse-index
 </a></li>
-<li>FloorSheet -> <a onclick="newo('8')" href="javascript:void(0);">/nepse-data/floorsheet?page=0&size=500&sort=contractId,desc</a>, POST Data Required: {"id":241}
-</li><form id= "8" action="/nepse-data/floorsheet?page=0&size=500&sort=contractId,desc" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjQxfQ=="></form>
+<li>FloorSheet -> <a onclick="newo('8')" href="javascript:void(0);">/nepse-data/floorsheet?page=0&size=500&sort=contractId,desc</a>, POST Data Required: <small class="smali">{"id":241}</small>
+</li><form id= "8" action="/nepse-data/floorsheet?page=0&size=500&sort=contractId,desc" method="POST" target="_blank"><input type="hidden" name="whatever" value="=="></form>
 <li>Indexes -> <a target="blank" href="/index
 ">/index
 </a></li><li>Indices -> <a target="blank" href="/index/history/58?
@@ -70,8 +74,8 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 ">/nepse-data/marcapbydate/
 </a></li><li>N days trading average price -> <a target="blank" href="/nepse-data/trading-average?nDays=120
 ">/nepse-data/trading-average?nDays=120
-</a></li><li>Today's Price -> <a onclick="newo('15')" href="javascript:void(0);">/nepse-data/today-price</a>, POST Data Required: {"id":241}
-</li><form id= "15" action="/nepse-data/today-price" method="POST" target="_blank"><input type="hidden" name="whatever" value="eyJpZCI6MjQxfQ=="></form><li>Company Detail -> <a target="blank" href="/security/8045
+</a></li><li>Today's Price -> <a onclick="newo('15')" href="javascript:void(0);">/nepse-data/today-price</a>, POST Data Required: <small class="smali">{"id":241}</small>
+</li><form id= "15" action="/nepse-data/today-price" method="POST" target="_blank"><input type="hidden" name="whatever" value="=="></form><li>Company Detail -> <a target="blank" href="/security/8045
 ">/security/8045
 </a></li><li>Sectorwise Options -> <a target="blank" href="/sectorwise
 ">/sectorwise
@@ -96,3 +100,21 @@ xhr.send(atob(ins.getElementsByTagName("input")[0].value));
 </a></li><li>Holyday Options -> <a target="blank" href="/holiday/year
 ">/holiday/year
 </a></li><li>Holiday by Year -> <a target="blank" href="/holiday/list?year=2022">/holiday/list?year=2022</a></li>
+
+<script>
+const date1 = new Date('12/9/2022');
+var today = new Date();
+
+const diffTime = Math.abs(today - date1);
+const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+console.log(diffDays + " days");
+
+const diff=255+diffDays*2;
+
+var all = document.getElementsByClassName("smali");
+
+for (var i=0, max=all.length; i < max; i++) {
+     all[i].innerHTML=`{"id":${diff}}`;
+}
+
+</script>
