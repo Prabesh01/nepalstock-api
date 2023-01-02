@@ -102,14 +102,14 @@ xhr.send(`{"id":${diff}}`);
 </a></li><li>Holiday by Year -> <a target="blank" href="/holiday/list?year=2022">/holiday/list?year=2022</a></li>
 
 <script>
-const date1 = new Date('12/9/2022');
+const date1 = new Date('1/1/2023');
 var today = new Date();
 
 const diffTime = Math.abs(today - date1);
 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
 console.log(diffDays + " days");
 
-const diff=253+diffDays*2;
+const diff=237+diffDays*2;
 
 var all = document.getElementsByClassName("smali");
 
