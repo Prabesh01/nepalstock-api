@@ -138,15 +138,12 @@ class Nepse:
         else:
             r=requests.get(url, headers=headers, verify=False)
             try:
-                return (r.json(),r.status_code)
+                return (r.text,r.status_code)
             except:
-                try:
-                    return (r.text,r.status_code)
-                except:
-                    return({"error": "invalid"}, 403)
+                return({"error": "invalid"}, 403)
         
     def getValidToken(self):
-        token_response = self.requestAPI(url=self.token_url)[0]
+        token_response = json.loads(self.requestAPI(url=self.token_url)[0])
         
         for salt_index in range(1, 6):
             token_response[f'salt{salt_index}'] = int(token_response[f'salt{salt_index}'])
