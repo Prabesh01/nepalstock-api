@@ -1,3 +1,8 @@
+# 16th feb, 2023 [UPDATE!]
+Looks like they have made some changes in the API. So this bypass has stopped working for now. I wont be able to look into it for a while. Do open pull requests if you got fixes.
+
+***
+
 # nepalstock-api
 
 Public version of [nepalstock-api](https://nepalstock.onrender.com/info).
