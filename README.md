@@ -1,11 +1,12 @@
-# 16th feb, 2023 [UPDATE!]
-Looks like they have made some changes in the API. So this bypass has stopped working for now. I wont be able to look into it for a while. Do open pull requests if you got fixes.
+# [UPDATE!]
+Floorsheet and today-price endpoints aren't working.
 
 ***
 
 # nepalstock-api
 
-Public version of [nepalstock-api](https://nepalstock.onrender.com/info).
+Public version of [nepalstock-api](https://nepalstock.onrender.com/info).<br>
+Used Authorization Bypass code from [NepseUnofficialApi](https://github.com/basic-bgnr/NepseUnofficialApi)
 
 ## How does this work?
 - You visit nepalstock.onrender.com/something/somehting/
