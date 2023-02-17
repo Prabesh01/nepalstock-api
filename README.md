@@ -10,7 +10,7 @@ Used Authorization Bypass code from [NepseUnofficialApi](https://github.com/basi
 
 ## How does this work?
 - You visit nepalstock.onrender.com/something/somehting/
-- The Server sends request to newweb.nepalstock.com/api/nots/something/somehting/
+- The Server sends request to nepalstock.com/api/nots/something/somehting/
 - It bypasses the UNAUTHORIZED ACCESS you would get when directly visiting the API.
 - It reads the response and sends the exact response back to you.
 
