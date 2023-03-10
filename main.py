@@ -90,8 +90,8 @@ class Nepse:
         if post_data:
             response = requests.post(url, headers=headers, data=json.dumps(post_data))        
         else:
-            response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else self.getPOSTPayloadID()}))
-        
+            #response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else self.getPOSTPayloadID()}))
+            response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else (self.getPOSTPayloadIDForFloorSheet() if '/nepse-data/floorsheet' or ' /nepse-data/today-price' in url else self.getPOSTPayloadID())}))
         # if (response.status_code != 200):
             # self.refreshToken()
             # return self.requestPOSTAPI(url)
@@ -177,6 +177,14 @@ class Nepse:
         self.post_payload_id = n 
         return self.post_payload_id
 
+    def getPOSTPayloadIDForFloorSheet(self):
+        dummy_id = self.getDummyID()
+        now = datetime.datetime.now(tz_NP)
+        e = self.getDummyData()[dummy_id] + dummy_id + 2*(now.day)
+        n = e + self.salts[1  if e%10 < 4 else 3] * now.day - self.salts[(1 if e%10<4 else 3) - 1]
+        self.post_payload_id = n 
+        return self.post_payload_id    
+    
     def getPOSTPayloadID(self):
         dummy_id = self.getDummyID()
         now = datetime.datetime.now(tz_NP)
