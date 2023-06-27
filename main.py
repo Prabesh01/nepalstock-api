@@ -75,7 +75,7 @@ class Nepse:
             access_token, request_token = self.getToken()
             headers = {'Authorization': f'Salter {access_token}', **self.headers}
         
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=False)
         # if (response.status_code != 200):
             # self.refreshToken()
             # return self.requestAPI(url) 
@@ -88,10 +88,10 @@ class Nepse:
         
         headers = {'Content-Type':'application/json', 'Authorization': f'Salter {access_token}', **self.headers, }
         if post_data:
-            response = requests.post(url, headers=headers, data=json.dumps(post_data))        
+            response = requests.post(url, headers=headers, data=json.dumps(post_data), verify=False)        
         else:
             #response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else self.getPOSTPayloadID()}))
-            response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else (self.getPOSTPayloadIDForFloorSheet() if '/nepse-data/floorsheet' or ' /nepse-data/today-price' in url else self.getPOSTPayloadID())}))
+            response = requests.post(url, headers=headers, data=json.dumps({"id": self.getPOSTPayloadIDForNepseIndex() if '/graph/index/' in url else (self.getPOSTPayloadIDForFloorSheet() if '/nepse-data/floorsheet' or ' /nepse-data/today-price' in url else self.getPOSTPayloadID())}), verify=False)
         # if (response.status_code != 200):
             # self.refreshToken()
             # return self.requestPOSTAPI(url)
@@ -120,7 +120,7 @@ class Nepse:
             
             refresh_key = requests.post(self.refresh_url, 
                                         headers=headers, 
-                                        data=data)
+                                        data=data, verify=False)
             
             if refresh_key.status_code != 200:
                 self.resetToken()
