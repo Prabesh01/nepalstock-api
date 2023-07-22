@@ -203,7 +203,7 @@ class S(BaseHTTPRequestHandler):
                 self.wfile.write(file.read())            
             return
         nepse = Nepse()    
-        url='https://nepalstock.com/api/nots'+str(self.path)
+        url='https://nepalstock.com.np/api/nots'+str(self.path)
         res=nepse.requestAPI(url=url)
         self.write_response(res)
         
@@ -211,7 +211,7 @@ class S(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             nepse = Nepse()
-            url='https://nepalstock.com/api/nots'+str(self.path)
+            url='https://nepalstock.com.np/api/nots'+str(self.path)
             content_len = int(self.headers.get('Content-Length'))
             if content_len==0:
                 res=nepse.requestPOSTAPI(url=url)
