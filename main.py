@@ -237,9 +237,9 @@ class S(BaseHTTPRequestHandler):
              
 
 port = int(os.environ.get("PORT", 5000))
-def run(server_class=HTTPServer, handler_class=S, addr="0.0.0.0", port=port):
+def run(server_class=HTTPServer, handler_class=S, addr="localhost", port=port):
     server_address = (addr, port)
     httpd = server_class(server_address, handler_class)
-    print(f"Starting httpd server on {addr}:{port}")
+    print(f"Starting http server on http://{addr}:{port}")
     httpd.serve_forever()
 run()
