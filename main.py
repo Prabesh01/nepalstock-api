@@ -17,21 +17,22 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class TokenParser():
     def __init__(self):
-        self.runtime = pywasm.load('css.wasm')
+        self.runtime = pywasm.core.Runtime()
+        self.wasm_module = self.runtime.instance_from_file('css.wasm')
 
     def parse_token_response(self, token_response):
-        n = self.runtime.exec('cdx', [token_response['salt1'], token_response['salt2'], token_response['salt3'], token_response['salt4'], token_response['salt5']]);
-        l = self.runtime.exec('rdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
-        o = self.runtime.exec('bdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
-        p = self.runtime.exec('ndx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
-        q = self.runtime.exec('mdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
+        n = self.runtime.invocate(self.wasm_module, 'cdx', [token_response['salt1'], token_response['salt2'], token_response['salt3'], token_response['salt4'], token_response['salt5']])[0];
+        l = self.runtime.invocate(self.wasm_module, 'rdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
+        o = self.runtime.invocate(self.wasm_module, 'bdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
+        p = self.runtime.invocate(self.wasm_module, 'ndx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
+        q = self.runtime.invocate(self.wasm_module, 'mdx', [token_response['salt1'], token_response['salt2'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
 
 
-        a = self.runtime.exec('cdx', [token_response['salt2'], token_response['salt1'], token_response['salt3'], token_response['salt5'], token_response['salt4']]);
-        b = self.runtime.exec('rdx', [token_response['salt2'], token_response['salt1'], token_response['salt3'], token_response['salt4'], token_response['salt5']]);
-        c = self.runtime.exec('bdx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
-        d = self.runtime.exec('ndx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
-        e = self.runtime.exec('mdx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']]);
+        a = self.runtime.invocate(self.wasm_module, 'cdx', [token_response['salt2'], token_response['salt1'], token_response['salt3'], token_response['salt5'], token_response['salt4']])[0];
+        b = self.runtime.invocate(self.wasm_module, 'rdx', [token_response['salt2'], token_response['salt1'], token_response['salt3'], token_response['salt4'], token_response['salt5']])[0];
+        c = self.runtime.invocate(self.wasm_module, 'bdx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
+        d = self.runtime.invocate(self.wasm_module, 'ndx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
+        e = self.runtime.invocate(self.wasm_module, 'mdx', [token_response['salt2'], token_response['salt1'], token_response['salt4'], token_response['salt3'], token_response['salt5']])[0];
 
 
         access_token  = token_response['accessToken']
