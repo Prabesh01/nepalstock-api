@@ -1,6 +1,6 @@
 # nepalstock-api
 
-Public version of [nepalstock-api](https://nepalstock.onrender.com/info).<br>
+Public version of [nepalstock-api](https://nepalstock-kj9g.onrender.com/info).<br>
 Used Authorization Bypass code from [NepseUnofficialApi](https://github.com/basic-bgnr/NepseUnofficialApi)
 
 ## How does this work?
